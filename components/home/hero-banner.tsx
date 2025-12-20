@@ -54,15 +54,15 @@ export default function HeroBanner({ banners = [] }: { banners?: Banner[] }) {
 
         {/* Decorative wave */}
         <div className="absolute bottom-0 left-0 right-0">
-       
+
         </div>
       </div>
     );
   }
 
   return (
-    <div className="relative overflow-hidden">
-      <div className="relative h-64 md:h-80 lg:h-96">
+    <div className="relative overflow-hidden bg-slate-100 dark:bg-slate-900">
+      <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-80 lg:h-96">
         {banners.map((banner, index) => (
           <div
             key={banner._id || banner.id || index}
@@ -70,12 +70,12 @@ export default function HeroBanner({ banners = [] }: { banners?: Banner[] }) {
               }`}
           >
             {banner.image_url ? (
-              <div className="relative h-full">
+              <div className="relative h-full w-full">
                 <Image
                   src={banner.image_url}
                   alt={banner.title || 'Banner'}
                   fill
-                  className="object-cover"
+                  className="object-contain md:object-cover"
                   priority={index === 0}
                 />
                 {banner.title && (
@@ -151,7 +151,7 @@ export default function HeroBanner({ banners = [] }: { banners?: Banner[] }) {
       )}
 
       {/* Decorative wave */}
-     
+
     </div>
   );
 }

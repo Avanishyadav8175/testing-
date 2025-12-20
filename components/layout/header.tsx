@@ -1,8 +1,13 @@
+'use client';
+
 import { Button } from '@/components/ui/button';
-import { Languages, Menu } from 'lucide-react';
+import { Languages, Menu, X } from 'lucide-react';
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <header className="sticky top-0 z-50 w-full bg-white shadow-sm">
       <div className="container mx-auto px-4">
@@ -49,15 +54,58 @@ export default function Header() {
             <Button variant="ghost" size="icon" className="text-gray-600">
               <Languages className="h-5 w-5" />
             </Button>
-            <Button className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-full text-sm font-medium">
-              Sign up
-            </Button>
-            <Button variant="ghost" size="icon" className="md:hidden">
-              <Menu className="h-5 w-5" />
+            <Link href="/signup">
+              <Button className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-full text-sm font-medium">
+                Sign up
+              </Button>
+            </Link>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
           </div>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="md:hidden border-t border-gray-100 bg-white">
+          <div className="container mx-auto px-4 py-4 space-y-4">
+            <Link
+              href="/"
+              className="block text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 px-4 py-2 rounded-lg"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Home
+            </Link>
+            <Link
+              href="/about"
+              className="block text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 px-4 py-2 rounded-lg"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              About us
+            </Link>
+            <Link
+              href="/services"
+              className="block text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 px-4 py-2 rounded-lg"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              services
+            </Link>
+            <Link
+              href="/contact"
+              className="block text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 px-4 py-2 rounded-lg"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Contact us
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
