@@ -4,7 +4,7 @@ import { getCollection } from '@/lib/db';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'All Jobs - Government & Private Jobs | RozgaarTrap',
+  title: 'All Jobs - Government & Private Jobs | Rozgaartap',
   description: 'Browse all government and private job opportunities. Find your dream job with latest openings across India.',
   keywords: 'jobs, government jobs, private jobs, employment, career opportunities, job listings',
 };

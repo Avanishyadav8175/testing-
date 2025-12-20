@@ -15,7 +15,7 @@ export default function Footer() {
                 rozg
               </span>
               <span className="text-2xl font-bold text-orange-400">
-                aarTrap
+              artap
               </span>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">
@@ -234,7 +234,7 @@ export default function Footer() {
                 Terms & Conditions
               </Link>
               <Link
-                href="/sitemap"
+                href="/site-map"
                 className="text-gray-400 hover:text-orange-400 transition-colors"
               >
                 Sitemap

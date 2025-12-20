@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: `${contentType.name} - RozgaarTrap`,
+    title: `${contentType.name} - Rozgaartap`,
     description: contentType.description,
     keywords: `${contentType.name.toLowerCase()}, job portal, employment, career`,
   };

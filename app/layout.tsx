@@ -1,5 +1,5 @@
-import AuthProvider from '@/components/providers/auth-provider';
 import ConditionalLayout from '@/components/layout/conditional-layout';
+import AuthProvider from '@/components/providers/auth-provider';
 import { Toaster } from '@/components/ui/sonner';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import type { Metadata } from 'next';
@@ -9,18 +9,18 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'RozgaarTrap - Latest Government & Private Jobs',
+  title: 'RozgaarTap - Latest Government & Private Jobs',
   description: 'Find your dream job with latest government and private job opportunities, admit cards, results and exam notifications across India.',
   keywords: 'government jobs, private jobs, admit cards, results, sarkari naukri, job portal, employment opportunities, exam notifications',
-  authors: [{ name: 'RozgaarTrap Team' }],
-  creator: 'RozgaarTrap',
-  publisher: 'RozgaarTrap',
+  authors: [{ name: 'Rozgaartap Team' }],
+  creator: 'Rozgaartap',
+  publisher: 'Rozgaartap',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://rozgaartrap.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://rozgaartap.com'),
   alternates: {
     canonical: '/',
   },
@@ -28,13 +28,13 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_IN',
     url: '/',
-    title: 'RozgaarTrap - Latest Government & Private Jobs',
+    title: 'Rozgaartap - Latest Government & Private Jobs',
     description: 'Find your dream job with latest government and private job opportunities, admit cards, results and exam notifications across India.',
-    siteName: 'RozgaarTrap',
+    siteName: 'Rozgaartap',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'RozgaarTrap - Latest Government & Private Jobs',
+    title: 'Rozgaartap - Latest Government & Private Jobs',
     description: 'Find your dream job with latest government and private job opportunities, admit cards, results and exam notifications across India.',
   },
   robots: {
@@ -58,21 +58,21 @@ export default function RootLayout({
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "RozgaarTrap",
+    "name": "Rozgaartap",
     "description": "Find your dream job with latest government and private job opportunities, admit cards, results and exam notifications across India.",
-    "url": process.env.NEXT_PUBLIC_BASE_URL || "https://rozgaartrap.com",
+    "url": process.env.NEXT_PUBLIC_BASE_URL || "https://rozgaartap.com",
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": `${process.env.NEXT_PUBLIC_BASE_URL || "https://rozgaartrap.com"}/search?q={search_term_string}`
+        "urlTemplate": `${process.env.NEXT_PUBLIC_BASE_URL || "https://rozgaartap.com"}/search?q={search_term_string}`
       },
       "query-input": "required name=search_term_string"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "RozgaarTrap",
-      "url": process.env.NEXT_PUBLIC_BASE_URL || "https://rozgaartrap.com"
+      "name": "Rozgaartap",
+      "url": process.env.NEXT_PUBLIC_BASE_URL || "https://rozgaartap.com"
     }
   };
 

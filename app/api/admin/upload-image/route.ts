@@ -101,7 +101,7 @@ export async function POST(request: NextRequest) {
     const result = await new Promise((resolve, reject) => {
       cloudinary.uploader.upload_stream(
         {
-          folder: 'rozgaartrap',
+          folder: 'rozgaartap',
           resource_type: 'auto',
         },
         (error, result) => {

@@ -1,9 +1,9 @@
-import { getServerSession } from 'next-auth';
 import { getSession, signIn as nextAuthSignIn, signOut as nextAuthSignOut } from 'next-auth/react';
-import { authOptions } from './auth-options';
 
 export async function getUser() {
   if (typeof window === 'undefined') {
+    const { getServerSession } = await import('next-auth');
+    const { authOptions } = await import('./auth-options');
     const session = await getServerSession(authOptions);
     return session?.user;
   } else {

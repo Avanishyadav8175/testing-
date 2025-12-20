@@ -55,7 +55,7 @@ export default function DeleteConfirmationModal({
     }
   };
 
-  // Focus trap - keep focus within modal
+  // Focus tap - keep focus within modal
   const handleTabKey = (e: React.KeyboardEvent) => {
     if (e.key !== 'Tab') return;
 

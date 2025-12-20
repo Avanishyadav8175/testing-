@@ -40,7 +40,7 @@ export default function CategoriesSection({
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200 group-hover:from-slate-200 group-hover:to-slate-300 transition-colors">
+                    <div className="w-full  h-full flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200 group-hover:from-slate-200 group-hover:to-slate-300 transition-colors">
                       <Icon className="h-1/2 w-1/2 text-slate-600" />
                     </div>
                   )}

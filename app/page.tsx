@@ -10,12 +10,12 @@ import { getCollection } from '@/lib/db';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'RozgaarTrap - Latest Government & Private Jobs, Admit Cards, Results',
+  title: 'Rozgaartap - Latest Government & Private Jobs, Admit Cards, Results',
   description:
     'Find latest government jobs, private jobs, admit cards, results, answer keys and exam notifications. Apply online for sarkari naukri.',
   keywords: 'government jobs, private jobs, admit cards, results, sarkari naukri, job portal, employment',
   openGraph: {
-    title: 'RozgaarTrap - Latest Government & Private Jobs',
+    title: 'Rozgaartap - Latest Government & Private Jobs',
     description: 'Find latest government jobs, private jobs, admit cards, results, answer keys and exam notifications.',
     type: 'website',
     locale: 'en_IN',

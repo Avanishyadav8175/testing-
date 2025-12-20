@@ -3,9 +3,9 @@ import { Clock, Headphones, Mail, MapPin, MessageCircle, Phone } from 'lucide-re
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Contact Us - RozgaarTrap | Get in Touch',
-  description: 'Contact RozgaarTrap for any queries about jobs, career guidance, or technical support. We are here to help you succeed.',
-  keywords: 'contact rozgaartrap, customer support, job portal help, career guidance, technical support',
+  title: 'Contact Us - Rozgaartap | Get in Touch',
+  description: 'Contact Rozgaartap for any queries about jobs, career guidance, or technical support. We are here to help you succeed.',
+  keywords: 'contact rozgaartap, customer support, job portal help, career guidance, technical support',
 };
 
 export default function ContactPage() {
@@ -13,8 +13,8 @@ export default function ContactPage() {
     {
       icon: Mail,
       title: 'Email Us',
-      details: 'info@rozgaartrap.com',
-      subDetails: 'support@rozgaartrap.com',
+      details: 'info@rozgaartap.com',
+      subDetails: 'support@rozgaartap.com',
       color: 'bg-blue-500'
     },
     {
@@ -63,7 +63,7 @@ export default function ContactPage() {
 
   const faqs = [
     {
-      question: 'How do I apply for jobs posted on RozgaarTrap?',
+      question: 'How do I apply for jobs posted on Rozgaartap?',
       answer: 'Click on any job listing to view details and find the "Apply Now" button which will redirect you to the official application portal.'
     },
     {
@@ -76,7 +76,7 @@ export default function ContactPage() {
     },
     {
       question: 'Do you charge any fees for job applications?',
-      answer: 'No, RozgaarTrap is completely free for job seekers. We never charge any fees for accessing job information.'
+      answer: 'No, Rozgaartap is completely free for job seekers. We never charge any fees for accessing job information.'
     }
   ];
 

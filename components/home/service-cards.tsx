@@ -17,7 +17,7 @@ import Link from 'next/link';
 const services = [
   {
     id: 'govt-jobs',
-    title: 'Govt. Jobs',
+    title: 'Govt. Job',
     icon: Briefcase,
     color: 'bg-slate-600',
     href: '/category/government-jobs'
@@ -139,51 +139,41 @@ export default function ServiceCards({ categories = [] }: { categories?: any[] }
 
   return (
     <div className="container mx-auto px-4 py-8">
-      {/* Announcement character */}
-      <div className="flex items-start mb-8">
-        <div className="relative w-20 h-20 mr-6">
-          <div className="w-full h-full bg-red-500 rounded-full flex items-center justify-center">
-            <div className="text-white text-2xl">📢</div>
-          </div>
-        </div>
-        <div className="flex-1">
-          <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-6">
-            {displayCategories.slice(0, 9).map((category) => {
-              const Icon = getServiceIcon(category);
-              const href = category.href || `/category/${category.slug}`;
-              const color = getServiceColor(category);
+      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3 md:gap-4 lg:gap-6">
+        {displayCategories.map((category) => {
+          const Icon = getServiceIcon(category);
+          const href = category.href || `/category/${category.slug}`;
+          const color = getServiceColor(category);
 
-              return (
-                <Link
-                  key={category.id || category._id?.toString() || category.slug}
-                  href={href}
-                  className="group block"
-                >
-                  <div className="bg-white rounded-2xl p-4 md:p-6 shadow-md hover:shadow-lg transition-all duration-300 text-center">
-                    {category.image_url ? (
-                      <div className="w-16 h-16 mx-auto mb-3 rounded-2xl overflow-hidden">
-                        <Image
-                          src={category.image_url}
-                          alt={category.name || category.title}
-                          width={64}
-                          height={64}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    ) : (
-                      <div className={`w-16 h-16 ${color} rounded-2xl flex items-center justify-center mx-auto mb-3`}>
-                        <Icon className="h-8 w-8 text-white" />
-                      </div>
-                    )}
-                    <h3 className="font-semibold text-gray-800 text-sm">
-                      {category.name || category.title}
-                    </h3>
+          return (
+            <Link
+              key={category.id || category._id?.toString() || category.slug}
+              href={href}
+              className="group block"
+            >
+              <div className="bg-white rounded-2xl p-4 md:p-6 shadow-md hover:shadow-lg transition-all duration-300 text-center hover:-translate-y-1">
+                {category.image_url ? (
+                  <div className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-3 rounded-2xl overflow-hidden">
+                    <Image
+                      src={category.image_url}
+                      alt={category.name || category.title}
+                      width={64}
+                      height={64}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
+                ) : (
+                  <div className={`w-12 h-12 md:w-16 md:h-16 ${color} rounded-2xl flex items-center justify-center mx-auto mb-3`}>
+                    <Icon className="h-6 w-6 md:h-8 md:w-8 text-white" />
+                  </div>
+                )}
+                <h3 className="font-semibold text-gray-800 text-xs md:text-sm line-clamp-2 min-h-[2.5em] flex items-center justify-center">
+                  {category.name || category.title}
+                </h3>
+              </div>
+            </Link>
+          );
+        })}
       </div>
     </div>
   );
