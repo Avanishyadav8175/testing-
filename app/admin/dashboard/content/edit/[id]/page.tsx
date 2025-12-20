@@ -6,9 +6,10 @@ import { CONTENT_TYPES, ContentType } from '@/lib/content-types';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 
-export default function EditContentPage({ params }: { params: { id: string } }) {
+export default function EditContentPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params);
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [content, setContent] = useState<any>(null);
@@ -28,7 +29,7 @@ export default function EditContentPage({ params }: { params: { id: string } }) 
 
   async function fetchContent() {
     try {
-      const res = await fetch(`/api/admin/content/${params.id}`);
+      const res = await fetch(`/api/admin/content/${id}`);
       const data = await res.json();
 
       if (res.ok) {
@@ -87,7 +88,7 @@ export default function EditContentPage({ params }: { params: { id: string } }) 
         <DynamicContentForm
           contentType={contentType}
           initialData={content}
-          contentId={params.id}
+          contentId={id}
         />
       </div>
     </div>
