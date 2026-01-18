@@ -2,9 +2,9 @@ import { Award, CheckCircle, Globe, Heart, Target, Users } from 'lucide-react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About Us - Rozgaartap | Leading Job Portal in India',
-  description: 'Learn about Rozgaartap - Your trusted partner for government jobs, private jobs, admit cards, results, and career opportunities across India.',
-  keywords: 'about rozgaartap, job portal, career guidance, employment services, government jobs, private jobs',
+  title: 'About Us - Rozgartap | Leading Job Portal in India',
+  description: 'Learn about Rozgartap - Your trusted partner for government jobs, private jobs, admit cards, results, and career opportunities across India.',
+  keywords: 'about Rozgartap, job portal, career guidance, employment services, government jobs, private jobs',
 };
 
 export default function AboutPage() {
@@ -43,19 +43,19 @@ export default function AboutPage() {
       name: 'Santosh',
       role: 'Founder & CEO',
       image: '/team/ceo.jpg',
-      description: 'With 15+ years in HR and recruitment, Rajesh founded Rozgaartap to bridge the gap between job seekers and opportunities.',
+      description: 'Content Writer with 3+ years of experience in writing clear, engaging, and SEO-driven content for digital platforms',
     },
     {
-      name: 'users',
-      role: 'Head of Content',
+      name: 'Naincy jain',
+      role: 'Content Writer',
       image: '/team/content-head.jpg',
-      description: 'Priya ensures all job postings and content are accurate, timely, and relevant to our users\' needs.',
+      description: 'Experienced Content Writer specializing in research-based, engaging, and search-optimized content for websites and digital platforms',
     },
     {
-      name: 'users',
+      name: 'Ravinder Baderiya',
       role: 'Technical Lead',
       image: '/team/tech-lead.jpg',
-      description: 'Amit leads our technical team to ensure the platform is fast, secure, and user-friendly.',
+      description: 'Creative Content Writer with 3+ years of experience in crafting informative, user-friendly, and SEO-optimized content thatconnects with the audience and supports digital growth',
     },
   ];
 
@@ -66,7 +66,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              About Rozgaartap
+              About Rozgartap
             </h1>
             <p className="text-xl md:text-2xl opacity-90 mb-8">
               Empowering careers, connecting opportunities, and building futures across India
@@ -106,7 +106,7 @@ export default function AboutPage() {
                   Bridging the Gap
                 </h3>
                 <p className="text-gray-600 mb-6">
-                  Rozgaartap was born from the realization that talented individuals across India
+                  Rozgartap was born from the realization that talented individuals across India
                   were missing out on opportunities simply because they didn't have access to the
                   right information at the right time.
                 </p>
@@ -182,7 +182,7 @@ export default function AboutPage() {
                 Meet Our Team
               </h2>
               <p className="text-lg text-gray-600">
-                The passionate people behind Rozgaartap
+                The passionate people behind Rozgartap
               </p>
             </div>
 
@@ -217,7 +217,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-              Why Choose Rozgaartap?
+              Why Choose Rozgartap?
             </h2>
             <p className="text-lg text-gray-600 mb-12">
               We're more than just a job portal - we're your career partner

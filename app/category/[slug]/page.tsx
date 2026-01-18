@@ -20,8 +20,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }
 
     return {
-      title: `${category.name} - Rozgaartap`,
-      description: category.description || `Browse ${category.name} on Rozgaartap`,
+      title: `${category.name} - Rozgartap`,
+      description: category.description || `Browse ${category.name} on Rozgartap`,
       keywords: `${category.name.toLowerCase()}, job portal, employment, career`,
     };
   } catch (error) {

@@ -1,4 +1,4 @@
-import { ExternalLink, Facebook, Instagram, Mail, MapPin, Phone, Twitter, Youtube } from 'lucide-react';
+import { ExternalLink, Facebook, Instagram, Mail, MapPin, Twitter, Youtube } from 'lucide-react';
 import Link from 'next/link';
 import NewsletterSection from './newsletter-section';
 
@@ -15,7 +15,7 @@ export default function Footer() {
                 rozg
               </span>
               <span className="text-2xl font-bold text-orange-400">
-              artap
+                artap
               </span>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">
@@ -174,25 +174,14 @@ export default function Footer() {
                   </a>
                 </div>
               </li>
-              <li className="flex items-start space-x-3">
-                <Phone className="h-5 w-5 text-orange-400 mt-0.5 flex-shrink-0" />
-                <div>
-                  <p className="text-gray-300 text-sm">Phone</p>
-                  <a
-                    href="tel:+911234567890"
-                    className="text-white hover:text-orange-400 transition-colors"
-                  >
-                    +91 12345 67890
-                  </a>
-                </div>
-              </li>
+
               <li className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-orange-400 mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-gray-300 text-sm">Address</p>
                   <p className="text-white">
-                    123 Career Street<br />
-                    Job City, India 110001
+                    Bharatpur Rajasthan<br />
+                    India 321001
                   </p>
                 </div>
               </li>
@@ -206,7 +195,7 @@ export default function Footer() {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
-              <p>&copy; 2025 Rozgar Tap. All rights reserved.</p>
+              <p>&copy; 2025 Rozgartap. All rights reserved.</p>
             </div>
             <div className="flex flex-wrap justify-center md:justify-end space-x-6 text-sm">
               <Link

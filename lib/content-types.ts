@@ -172,7 +172,7 @@ export const CONTENT_TYPES: ContentType[] = [
     description: 'Blog Posts and Articles',
     fields: [
       { id: 'title', name: 'title', type: 'text', label: 'Blog Title', required: true },
-      { id: 'author', name: 'author', type: 'text', label: 'Author Name', placeholder: 'Rozgaartap Team' },
+      { id: 'author', name: 'author', type: 'text', label: 'Author Name', placeholder: 'Rozgartap Team' },
       { id: 'featured_image', name: 'featured_image', type: 'image', label: 'Featured Image' },
       { id: 'excerpt', name: 'excerpt', type: 'textarea', label: 'Excerpt/Summary', placeholder: 'Brief summary of the blog post' },
       { id: 'content', name: 'content', type: 'richtext', label: 'Content', required: true },

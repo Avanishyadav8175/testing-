@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy - Rozgar Tap',
-  description: 'Privacy policy for Rozgar Tap job portal. Learn how we collect, use, and protect your personal information.',
+  title: 'Privacy Policy - Rozgartap',
+  description: 'Privacy policy for Rozgartap job portal. Learn how we collect, use, and protect your personal information.',
 };
 
 export default function PrivacyPage() {

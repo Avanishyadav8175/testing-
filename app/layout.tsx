@@ -9,18 +9,18 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'RozgaarTap - Latest Government & Private Jobs',
+  title: 'Rozgartap - Latest Government & Private Jobs',
   description: 'Find your dream job with latest government and private job opportunities, admit cards, results and exam notifications across India.',
   keywords: 'government jobs, private jobs, admit cards, results, sarkari naukri, job portal, employment opportunities, exam notifications',
-  authors: [{ name: 'Rozgaartap Team' }],
-  creator: 'Rozgaartap',
-  publisher: 'Rozgaartap',
+  authors: [{ name: 'Rozgartap Team' }],
+  creator: 'Rozgartap',
+  publisher: 'Rozgartap',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://rozgaartap.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://Rozgartap.com'),
   alternates: {
     canonical: '/',
   },
@@ -28,13 +28,13 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_IN',
     url: '/',
-    title: 'Rozgaartap - Latest Government & Private Jobs',
+    title: 'Rozgartap - Latest Government & Private Jobs',
     description: 'Find your dream job with latest government and private job opportunities, admit cards, results and exam notifications across India.',
-    siteName: 'Rozgaartap',
+    siteName: 'Rozgartap',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Rozgaartap - Latest Government & Private Jobs',
+    title: 'Rozgartap - Latest Government & Private Jobs',
     description: 'Find your dream job with latest government and private job opportunities, admit cards, results and exam notifications across India.',
   },
   robots: {
@@ -58,21 +58,21 @@ export default function RootLayout({
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Rozgaartap",
+    "name": "Rozgartap",
     "description": "Find your dream job with latest government and private job opportunities, admit cards, results and exam notifications across India.",
-    "url": process.env.NEXT_PUBLIC_BASE_URL || "https://rozgaartap.com",
+    "url": process.env.NEXT_PUBLIC_BASE_URL || "https://Rozgartap.com",
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": `${process.env.NEXT_PUBLIC_BASE_URL || "https://rozgaartap.com"}/search?q={search_term_string}`
+        "urlTemplate": `${process.env.NEXT_PUBLIC_BASE_URL || "https://Rozgartap.com"}/search?q={search_term_string}`
       },
       "query-input": "required name=search_term_string"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Rozgaartap",
-      "url": process.env.NEXT_PUBLIC_BASE_URL || "https://rozgaartap.com"
+      "name": "Rozgartap",
+      "url": process.env.NEXT_PUBLIC_BASE_URL || "https://Rozgartap.com"
     }
   };
 

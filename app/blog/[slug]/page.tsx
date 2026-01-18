@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
     return {
       title: blog.seo_title || blog.title,
-      description: blog.seo_description || blog.data?.excerpt || 'Read this blog post on Rozgaartap',
+      description: blog.seo_description || blog.data?.excerpt || 'Read this blog post on Rozgartap',
       keywords: blog.seo_keywords || blog.data?.tags?.join(', ') || '',
     };
   } catch (error) {

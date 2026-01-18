@@ -1,11 +1,11 @@
 import ContactForm from '@/components/contact/contact-form';
-import { Clock, Headphones, Mail, MapPin, MessageCircle, Phone } from 'lucide-react';
+import { Clock, Headphones, Mail, MapPin, MessageCircle } from 'lucide-react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Contact Us - Rozgaartap | Get in Touch',
-  description: 'Contact Rozgaartap for any queries about jobs, career guidance, or technical support. We are here to help you succeed.',
-  keywords: 'contact rozgaartap, customer support, job portal help, career guidance, technical support',
+  title: 'Contact Us - Rozgartap | Get in Touch',
+  description: 'Contact Rozgartap for any queries about jobs, career guidance, or technical support. We are here to help you succeed.',
+  keywords: 'contact Rozgartap, customer support, job portal help, career guidance, technical support',
 };
 
 export default function ContactPage() {
@@ -13,22 +13,16 @@ export default function ContactPage() {
     {
       icon: Mail,
       title: 'Email Us',
-      details: 'info@rozgaartap.com',
-      subDetails: 'support@rozgaartap.com',
+      details: 'info@Rozgartap.com',
+      subDetails: 'support@Rozgartap.com',
       color: 'bg-blue-500'
     },
-    {
-      icon: Phone,
-      title: 'Call Us',
-      details: '+91 12345 67890',
-      subDetails: 'Mon-Fri: 9 AM - 6 PM',
-      color: 'bg-green-500'
-    },
+
     {
       icon: MapPin,
       title: 'Visit Us',
-      details: '123 Career Street',
-      subDetails: 'Job City, India 110001',
+      details: 'Bharatpur Rajasthan India',
+      subDetails: 'Job City, India',
       color: 'bg-red-500'
     },
     {
@@ -63,7 +57,7 @@ export default function ContactPage() {
 
   const faqs = [
     {
-      question: 'How do I apply for jobs posted on Rozgaartap?',
+      question: 'How do I apply for jobs posted on Rozgartap?',
       answer: 'Click on any job listing to view details and find the "Apply Now" button which will redirect you to the official application portal.'
     },
     {
@@ -76,7 +70,7 @@ export default function ContactPage() {
     },
     {
       question: 'Do you charge any fees for job applications?',
-      answer: 'No, Rozgaartap is completely free for job seekers. We never charge any fees for accessing job information.'
+      answer: 'No, Rozgartap is completely free for job seekers. We never charge any fees for accessing job information.'
     }
   ];
 
@@ -98,8 +92,8 @@ export default function ContactPage() {
 
       {/* Contact Info Cards */}
       <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
+        <div className="container mx-auto px-34">
+          <div className="max-w-8xl mx-auto">
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
               {contactInfo.map((info, index) => {
                 const Icon = info.icon;
@@ -180,7 +174,7 @@ export default function ContactPage() {
                     Call us during business hours for immediate assistance:
                   </p>
                   <p className="text-blue-600 font-semibold">
-                    +91 12345 67890
+
                   </p>
                   <p className="text-gray-500 text-sm">
                     Monday - Friday: 9:00 AM - 6:00 PM IST
@@ -221,7 +215,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Map Section (Placeholder) */}
+      {/* Map Section (Placeholder)
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
@@ -235,13 +229,13 @@ export default function ContactPage() {
                   Interactive map will be integrated here
                 </p>
                 <p className="text-gray-500 text-sm">
-                  123 Career Street, Job City, India 110001
+                  123 Career Street, Job City, India 321001
                 </p>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

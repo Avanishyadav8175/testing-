@@ -17,7 +17,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Our Services - Rozgaartap | Complete Career Solutions',
+  title: 'Our Services - Rozgartap | Complete Career Solutions',
   description: 'Explore our comprehensive services including government jobs, private jobs, admit cards, results, internships, scholarships and career guidance.',
   keywords: 'job services, government jobs, private jobs, admit cards, results, career services, employment solutions',
 };
@@ -271,7 +271,7 @@ export default function ServicesPage() {
               Ready to Start Your Career Journey?
             </h2>
             <p className="text-xl opacity-90 mb-8">
-              Join thousands of successful job seekers who found their dream careers with Rozgaartap
+              Join thousands of successful job seekers who found their dream careers with Rozgartap
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
