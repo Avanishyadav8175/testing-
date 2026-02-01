@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('Banner upload error:', error);
     return NextResponse.json(
-      { error: `Failed to upload ${formData.get('type') || 'banner'} image to Cloudinary` },
+      { error: 'Failed to upload image to Cloudinary' },
       { status: 500 }
     );
   }

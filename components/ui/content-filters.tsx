@@ -186,7 +186,7 @@ export default function ContentFilters({
         <p className="text-gray-600">
           <span className="font-medium">{filteredItems}</span> of <span className="font-medium">{totalItems}</span> items
           {searchQuery && (
-            <span className="text-blue-600"> matching "{searchQuery}"</span>
+            <span className="text-blue-600"> matching &quot;{searchQuery}&quot;</span>
           )}
         </p>
 

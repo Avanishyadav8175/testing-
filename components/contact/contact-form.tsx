@@ -184,7 +184,7 @@ export default function ContactForm() {
         {submitStatus === 'success' && (
           <div className="flex items-center gap-2 p-4 bg-green-50 border border-green-200 rounded-lg text-green-700">
             <CheckCircle className="h-5 w-5" />
-            <span>Thank you! Your message has been sent successfully. We'll get back to you soon.</span>
+            <span>Thank you! Your message has been sent successfully. We&apos;ll get back to you soon.</span>
           </div>
         )}
 
@@ -220,7 +220,7 @@ export default function ContactForm() {
           <a href="/privacy" className="text-blue-600 hover:underline">
             Privacy Policy
           </a>
-          . We'll only use your information to respond to your inquiry.
+          . We&apos;ll only use your information to respond to your inquiry.
         </p>
       </form>
     </div>

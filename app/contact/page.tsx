@@ -84,7 +84,7 @@ export default function ContactPage() {
               Contact Us
             </h1>
             <p className="text-xl md:text-2xl opacity-90 mb-8">
-              We're here to help you succeed in your career journey
+              We&apos;re here to help you succeed in your career journey
             </p>
           </div>
         </div>
@@ -130,7 +130,7 @@ export default function ContactPage() {
                   Send us a Message
                 </h2>
                 <p className="text-gray-600 mb-8">
-                  Have a question or need assistance? Fill out the form below and we'll get back to you as soon as possible.
+                  Have a question or need assistance? Fill out the form below and we&apos;ll get back to you as soon as possible.
                 </p>
                 <ContactForm />
               </div>
@@ -141,7 +141,7 @@ export default function ContactPage() {
                   How Can We Help?
                 </h2>
                 <p className="text-gray-600 mb-8">
-                  Choose the type of support you need, and we'll connect you with the right team.
+                  Choose the type of support you need, and we&apos;ll connect you with the right team.
                 </p>
 
                 <div className="space-y-6">

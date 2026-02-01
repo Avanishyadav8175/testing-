@@ -1,4 +1,5 @@
 import { getCollection, type Category } from '@/lib/db';
+import { generateUniqueSlug } from '@/lib/slug-utils';
 import { ObjectId } from 'mongodb';
 import { NextRequest, NextResponse } from 'next/server';
 

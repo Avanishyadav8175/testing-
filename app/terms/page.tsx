@@ -55,7 +55,7 @@ export default function TermsPage() {
           <section className="mb-8">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">Disclaimer</h2>
             <p className="text-gray-600 mb-4">
-              The materials on Rozgar Tap are provided on an 'as is' basis. Rozgar Tap makes no
+              The materials on Rozgar Tap are provided on an &apos;as is&apos; basis. Rozgar Tap makes no
               warranties, expressed or implied, and hereby disclaims and negates all other warranties
               including without limitation, implied warranties or conditions of merchantability,
               fitness for a particular purpose, or non-infringement of intellectual property or

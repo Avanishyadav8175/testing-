@@ -57,12 +57,12 @@ export default function AboutPage() {
       image: '/team/tech-lead.jpg',
       description: 'Creative Content Writer with 3+ years of experience in crafting informative, user-friendly, and SEO-optimized content thatconnects with the audience and supports digital growth',
     },
-  {
-  name: 'Keshav Gupta',
-  role: 'Website Developer',
-  image: '/team/avanish.jpg',
-  description: 'Developer of this Job & College Result platform, handling full-stack development, database integration, and performance optimization to ensure a fast and reliable user experience.'
-}
+    {
+      name: 'Keshav Gupta',
+      role: 'Website Developer',
+      image: '/team/avanish.jpg',
+      description: 'Developer of this Job & College Result platform, handling full-stack development, database integration, and performance optimization to ensure a fast and reliable user experience.'
+    }
 
 
 
@@ -116,12 +116,12 @@ export default function AboutPage() {
                 </h3>
                 <p className="text-gray-600 mb-6">
                   Rozgartap was born from the realization that talented individuals across India
-                  were missing out on opportunities simply because they didn't have access to the
+                  were missing out on opportunities simply because they didn&apos;t have access to the
                   right information at the right time.
                 </p>
                 <p className="text-gray-600 mb-6">
                   We started as a small team passionate about making job searching easier and more
-                  transparent. Today, we've grown into India's trusted job portal, serving millions
+                  transparent. Today, we&apos;ve grown into India&apos;s trusted job portal, serving millions
                   of job seekers and thousands of employers.
                 </p>
                 <p className="text-gray-600">
@@ -183,65 +183,65 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
- <section className="py-24 bg-gradient-to-b from-blue-50 to-white">
-  <div className="container mx-auto px-4">
+      <section className="py-24 bg-gradient-to-b from-blue-50 to-white">
+        <div className="container mx-auto px-4">
 
-    {/* Heading */}
-    <div className="text-center max-w-3xl mx-auto mb-16">
-      <span className="px-4 py-1 text-sm bg-blue-100 text-blue-600 rounded-full">
-        Our Team
-      </span>
+          {/* Heading */}
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="px-4 py-1 text-sm bg-blue-100 text-blue-600 rounded-full">
+              Our Team
+            </span>
 
-      <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mt-4">
-        Let’s Meet Our Team
-      </h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mt-4">
+              Let’s Meet Our Team
+            </h2>
 
-      <p className="text-gray-600 mt-4">
-        The passionate people behind Rozgartap platform working to deliver
-        reliable job updates and exam results.
-      </p>
-    </div>
-
-    {/* Team Grid */}
-    <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-10">
-      {team.map((member, index) => (
-        <div
-          key={index}
-          className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 text-center p-8 relative group"
-        >
-          {/* Avatar */}
-          <div className="w-24 h-24 mx-auto rounded-full overflow-hidden border-4 border-white shadow-md -mt-16 bg-gray-100">
-            <img
-              src="https://www.kindpng.com/picc/m/252-2524695_dummy-profile-image-jpg-hd-png-download.png"
-              alt={member.name}
-              className="w-full h-full object-cover"
-            />
+            <p className="text-gray-600 mt-4">
+              The passionate people behind Rozgartap platform working to deliver
+              reliable job updates and exam results.
+            </p>
           </div>
 
-          {/* Info */}
-          <h3 className="mt-6 text-xl font-semibold text-gray-900">
-            {member.name}
-          </h3>
+          {/* Team Grid */}
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-10">
+            {team.map((member, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 text-center p-8 relative group"
+              >
+                {/* Avatar */}
+                <div className="w-24 h-24 mx-auto rounded-full overflow-hidden border-4 border-white shadow-md -mt-16 bg-gray-100">
+                  <img
+                    src="https://www.kindpng.com/picc/m/252-2524695_dummy-profile-image-jpg-hd-png-download.png"
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
 
-          <p className="text-blue-600 font-medium text-sm mb-3">
-            {member.role}
-          </p>
+                {/* Info */}
+                <h3 className="mt-6 text-xl font-semibold text-gray-900">
+                  {member.name}
+                </h3>
 
-          <p className="text-gray-600 text-sm leading-relaxed">
-            {member.description}
-          </p>
+                <p className="text-blue-600 font-medium text-sm mb-3">
+                  {member.role}
+                </p>
 
-          {/* Social Icons */}
-          <div className="flex justify-center gap-4 mt-5 text-gray-400 group-hover:text-blue-600 transition">
-            <a href="#"><i className="fab fa-x-twitter"></i></a>
-            <a href="#"><i className="fab fa-facebook"></i></a>
-            <a href="#"><i className="fab fa-linkedin"></i></a>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {member.description}
+                </p>
+
+                {/* Social Icons */}
+                <div className="flex justify-center gap-4 mt-5 text-gray-400 group-hover:text-blue-600 transition">
+                  <a href="#"><i className="fab fa-x-twitter"></i></a>
+                  <a href="#"><i className="fab fa-facebook"></i></a>
+                  <a href="#"><i className="fab fa-linkedin"></i></a>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+      </section>
 
 
       {/* Why Choose Us */}
@@ -252,7 +252,7 @@ export default function AboutPage() {
               Why Choose Rozgartap?
             </h2>
             <p className="text-lg text-gray-600 mb-12">
-              We're more than just a job portal - we're your career partner
+              We&apos;re more than just a job portal - we&apos;re your career partner
             </p>
 
             <div className="grid md:grid-cols-2 gap-6">
@@ -280,7 +280,7 @@ export default function AboutPage() {
                 </h3>
                 <p className="text-gray-600">
                   Our advanced search and filtering system helps you find exactly
-                  what you're looking for quickly and efficiently.
+                  what you&apos;re looking for quickly and efficiently.
                 </p>
               </div>
               <div className="bg-white rounded-xl p-8 shadow-md">
@@ -289,7 +289,7 @@ export default function AboutPage() {
                 </h3>
                 <p className="text-gray-600">
                   Access all features on any device. Our responsive design ensures
-                  a seamless experience whether you're on mobile, tablet, or desktop.
+                  a seamless experience whether you&apos;re on mobile, tablet, or desktop.
                 </p>
               </div>
             </div>
