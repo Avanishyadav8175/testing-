@@ -5,6 +5,7 @@ export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
     const file = formData.get('file') as File;
+    const type = formData.get('type') as string || 'banner'; // banner, category, hero, etc.
 
     if (!file) {
       return NextResponse.json(
@@ -14,25 +15,25 @@ export async function POST(request: NextRequest) {
     }
 
     // Validate file type
-    const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/gif'];
+    const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
     if (!allowedTypes.includes(file.type)) {
       return NextResponse.json(
-        { error: 'Invalid file type. Only JPEG, PNG, WebP, and GIF are allowed.' },
+        { error: 'Invalid file type. Only JPEG, PNG, and WebP are allowed for banners.' },
         { status: 400 }
       );
     }
 
-    // Validate file size (5MB limit)
-    const maxSize = 5 * 1024 * 1024; // 5MB
+    // Validate file size (10MB limit for banners)
+    const maxSize = 10 * 1024 * 1024; // 10MB
     if (file.size > maxSize) {
       return NextResponse.json(
-        { error: 'File size too large. Maximum size is 5MB.' },
+        { error: 'File size too large. Maximum size is 10MB for banners.' },
         { status: 400 }
       );
     }
 
-    // Upload to Cloudinary
-    const result = await uploadToCloudinary(file, 'rozgaartrap/content');
+    // Upload to Cloudinary with banner-specific transformations
+    const result = await uploadToCloudinary(file, `rozgaartrap/${type}`);
 
     return NextResponse.json({
       success: true,
@@ -41,13 +42,14 @@ export async function POST(request: NextRequest) {
       filename: file.name,
       size: file.size,
       type: file.type,
-      message: 'Image uploaded successfully to Cloudinary'
+      upload_type: type,
+      message: `${type} image uploaded successfully to Cloudinary`
     });
 
   } catch (error) {
-    console.error('Image upload error:', error);
+    console.error('Banner upload error:', error);
     return NextResponse.json(
-      { error: 'Failed to upload image to Cloudinary' },
+      { error: `Failed to upload ${formData.get('type') || 'banner'} image to Cloudinary` },
       { status: 500 }
     );
   }

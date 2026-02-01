@@ -283,7 +283,7 @@ export default function ContentManagementPage() {
                   <td className="px-6 py-4 text-right">
                     <div className="flex items-center justify-end gap-2">
                       <Link
-                        href={`/${contentType?.slug}/${item.slug}`}
+                        href={`/${item.content_type}/${item.slug}`}
                         target="_blank"
                         className="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded transition-colors"
                         title="View"

@@ -6,32 +6,35 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 interface PageProps {
-  params: {
+  params: Promise<{
     contentType: string;
-  };
+  }>;
 }
 
 // Generate metadata
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const contentType = CONTENT_TYPES.find(ct => ct.slug === params.contentType);
+  const { contentType } = await params;
+  const contentTypeInfo = CONTENT_TYPES.find(ct => ct.slug === contentType);
 
-  if (!contentType) {
+  if (!contentTypeInfo) {
     return { title: 'Not Found' };
   }
 
   return {
-    title: `${contentType.name} - Rozgartap`,
-    description: contentType.description,
-    keywords: `${contentType.name.toLowerCase()}, job portal, employment, career`,
+    title: `${contentTypeInfo.name} - Rozgartap`,
+    description: contentTypeInfo.description,
+    keywords: `${contentTypeInfo.name.toLowerCase()}, job portal, employment, career`,
   };
 }
 
 export default async function ContentTypePage({ params }: PageProps) {
   try {
-    // Find content type
-    const contentType = CONTENT_TYPES.find(ct => ct.slug === params.contentType);
+    const { contentType } = await params;
 
-    if (!contentType) {
+    // Find content type
+    const contentTypeInfo = CONTENT_TYPES.find(ct => ct.slug === contentType);
+
+    if (!contentTypeInfo) {
       notFound();
     }
 
@@ -39,7 +42,7 @@ export default async function ContentTypePage({ params }: PageProps) {
     const contentCol = await getCollection('content');
     const contentRaw = await contentCol
       .find({
-        content_type: contentType.id,
+        content_type: contentTypeInfo.id,
         active: true
       })
       .sort({ created_at: -1 })
@@ -61,18 +64,18 @@ export default async function ContentTypePage({ params }: PageProps) {
           {/* Header */}
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-4">
-              <span className="text-5xl">{contentType.icon}</span>
+              <span className="text-5xl">{contentTypeInfo.icon}</span>
               <div>
                 <h1 className="text-3xl md:text-4xl font-bold text-gray-800">
-                  {contentType.name}
+                  {contentTypeInfo.name}
                 </h1>
                 <p className="text-gray-600 text-lg">
-                  {contentType.description}
+                  {contentTypeInfo.description}
                 </p>
               </div>
             </div>
             <p className="text-gray-600">
-              {content.length} {contentType.name.toLowerCase()} available
+              {content.length} {contentTypeInfo.name.toLowerCase()} available
             </p>
           </div>
 
@@ -82,7 +85,7 @@ export default async function ContentTypePage({ params }: PageProps) {
               {content.map((item: any) => (
                 <Link
                   key={item._id}
-                  href={`/${params.contentType}/${item.slug}`}
+                  href={`/${contentType}/${item.slug}`}
                   className="block bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100"
                 >
                   <div className="p-6">
@@ -200,12 +203,12 @@ export default async function ContentTypePage({ params }: PageProps) {
             </div>
           ) : (
             <div className="text-center py-16 bg-white rounded-2xl shadow-md">
-              <div className="text-6xl mb-4">{contentType.icon}</div>
+              <div className="text-6xl mb-4">{contentTypeInfo.icon}</div>
               <h3 className="text-xl font-semibold text-gray-600 mb-2">
-                No {contentType.name.toLowerCase()} found
+                No {contentTypeInfo.name.toLowerCase()} found
               </h3>
               <p className="text-gray-500">
-                Check back later for new {contentType.name.toLowerCase()}.
+                Check back later for new {contentTypeInfo.name.toLowerCase()}.
               </p>
             </div>
           )}

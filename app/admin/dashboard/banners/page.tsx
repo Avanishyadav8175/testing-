@@ -70,9 +70,15 @@ export default function BannersPage() {
   async function uploadBannerImage(file: File): Promise<string> {
     const form = new FormData();
     form.append('file', file);
-    const res = await fetch('/api/admin/upload', { method: 'POST', body: form });
+    form.append('type', 'banner'); // Specify this is a banner upload
+
+    const res = await fetch('/api/admin/upload-banner', {
+      method: 'POST',
+      body: form
+    });
+
     const json = await res.json();
-    if (!res.ok) throw new Error(json.error || 'Failed to upload');
+    if (!res.ok) throw new Error(json.error || 'Failed to upload to Cloudinary');
     return json.url as string;
   }
 

@@ -51,18 +51,13 @@ export default function HeroBanner({ banners = [] }: { banners?: Banner[] }) {
             </div>
           </div>
         </div>
-
-        {/* Decorative wave */}
-        <div className="absolute bottom-0 left-0 right-0">
-
-        </div>
       </div>
     );
   }
 
   return (
-    <div className="relative overflow-hidden bg-slate-100 dark:bg-slate-900">
-      <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-80 lg:h-96">
+    <div className="relative overflow-hidden bg-slate-50 dark:bg-slate-900">
+      <div className="relative w-full aspect-[16/9] md:aspect-[20/7] lg:aspect-[24/7]">
         {banners.map((banner, index) => (
           <div
             key={banner._id || banner.id || index}
@@ -75,35 +70,56 @@ export default function HeroBanner({ banners = [] }: { banners?: Banner[] }) {
                   src={banner.image_url}
                   alt={banner.title || 'Banner'}
                   fill
-                  className="object-contain md:object-cover"
+                  className="object-cover object-center"
                   priority={index === 0}
                 />
+
                 {banner.title && (
-                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                    <div className="text-center text-white px-4">
-                      <h1 className="text-3xl md:text-5xl font-bold mb-4">
-                        {banner.title}
-                      </h1>
-                      {banner.subtitle && (
-                        <p className="text-lg md:text-xl opacity-90">
-                          {banner.subtitle}
-                        </p>
-                      )}
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent flex items-center">
+                    <div className="container mx-auto px-4 md:px-6">
+                      <div className="max-w-2xl text-white">
+                        <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-3 leading-tight">
+                          {banner.title}
+                        </h1>
+                        {banner.subtitle && (
+                          <p className="text-base md:text-lg lg:text-xl opacity-90 mb-4">
+                            {banner.subtitle}
+                          </p>
+                        )}
+                        <div className="flex flex-col sm:flex-row gap-3">
+                          <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2.5 rounded-lg transition-all duration-300">
+                            Explore Now
+                          </button>
+                          <button className="border-2 border-white text-white hover:bg-white hover:text-gray-900 font-semibold px-6 py-2.5 rounded-lg transition-all duration-300">
+                            Learn More
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 )}
               </div>
             ) : (
-              <div className="h-full bg-gradient-to-r from-blue-600 to-blue-800 flex items-center justify-center px-8">
-                <div className="max-w-2xl text-center text-white">
-                  <h2 className="text-3xl md:text-5xl font-bold mb-4">
-                    {banner.title || 'Find Your Dream Career'}
-                  </h2>
-                  {banner.subtitle && (
-                    <p className="text-lg md:text-xl opacity-90">
-                      {banner.subtitle}
-                    </p>
-                  )}
+              <div className="h-full bg-gradient-to-r from-blue-600 to-blue-800 flex items-center justify-center">
+                <div className="container mx-auto px-4 md:px-6">
+                  <div className="max-w-3xl text-center text-white">
+                    <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
+                      {banner.title || 'Find Your Dream Career'}
+                    </h2>
+                    {banner.subtitle && (
+                      <p className="text-base md:text-lg lg:text-xl opacity-90 mb-6">
+                        {banner.subtitle}
+                      </p>
+                    )}
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                      <button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold px-8 py-3 rounded-lg transition-all duration-300">
+                        Get Started
+                      </button>
+                      <button className="border-2 border-white text-white hover:bg-white hover:text-blue-700 font-semibold px-8 py-3 rounded-lg transition-all duration-300">
+                        Learn More
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             )}
@@ -149,9 +165,6 @@ export default function HeroBanner({ banners = [] }: { banners?: Banner[] }) {
           </div>
         </>
       )}
-
-      {/* Decorative wave */}
-
     </div>
   );
 }

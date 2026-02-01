@@ -1,12 +1,15 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
+import { useSettings } from '@/lib/settings-context';
 import { Languages, Menu, X } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { settings } = useSettings();
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white shadow-sm">
@@ -14,12 +17,24 @@ export default function Header() {
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-blue-600">
-                Rozg
-              </span>
-              <span className="text-2xl font-bold text-orange-500">
-                artap
-              </span>
+              {settings.site_logo ? (
+                <Image
+                  src={settings.site_logo}
+                  alt={settings.site_name}
+                  width={120}
+                  height={40}
+                  className="h-8 w-auto"
+                />
+              ) : (
+                <>
+                  <span className="text-2xl font-bold text-blue-600">
+                    Rozg
+                  </span>
+                  <span className="text-2xl font-bold text-orange-500">
+                    artap
+                  </span>
+                </>
+              )}
             </div>
           </Link>
 

@@ -4,16 +4,17 @@ import { notFound } from 'next/navigation';
 import CategoryPageClient from './CategoryPageClient';
 
 interface PageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 // Generate metadata
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   try {
+    const { slug } = await params;
     const categoriesCol = await getCollection('categories');
-    const category = await categoriesCol.findOne({ slug: params.slug });
+    const category = await categoriesCol.findOne({ slug });
 
     if (!category) {
       return { title: 'Not Found' };
@@ -31,9 +32,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function CategoryPage({ params }: PageProps) {
   try {
+    const { slug } = await params;
+
     // Fetch category
     const categoriesCol = await getCollection('categories');
-    const categoryRaw = await categoriesCol.findOne({ slug: params.slug });
+    const categoryRaw = await categoriesCol.findOne({ slug });
 
     if (!categoryRaw) {
       notFound();

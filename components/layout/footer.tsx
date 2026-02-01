@@ -1,8 +1,14 @@
-import { ExternalLink, Facebook, Instagram, Mail, MapPin, Twitter, Youtube } from 'lucide-react';
+'use client';
+
+import { useSettings } from '@/lib/settings-context';
+import { ExternalLink, Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Send, Twitter, Youtube } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import NewsletterSection from './newsletter-section';
 
 export default function Footer() {
+  const { settings } = useSettings();
+
   return (
     <footer className="bg-gray-900 text-white">
       {/* Main Footer Content */}
@@ -11,46 +17,95 @@ export default function Footer() {
           {/* Brand Section */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <span className="text-2xl font-bold text-blue-400">
-                rozg
-              </span>
-              <span className="text-2xl font-bold text-orange-400">
-                artap
-              </span>
+              {settings.site_logo ? (
+                <Image
+                  src={settings.site_logo}
+                  alt={settings.site_name}
+                  width={120}
+                  height={40}
+                  className="h-8 w-auto"
+                />
+              ) : (
+                <p>
+                  <span className="text-2xl font-bold text-blue-400">
+                      Rozg
+                  </span>
+                  <span className="text-2xl font-bold text-orange-400">
+                  artap
+                  </span>
+                </p>
+              )}
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">
-              Your trusted partner for finding government jobs, private jobs, admit cards, results,
-              and exam notifications across India. Stay updated with the latest opportunities.
+              {settings.footer_text}
             </p>
             <div className="flex space-x-4">
-              <Link
-                href="#"
-                className="w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook className="h-5 w-5" />
-              </Link>
-              <Link
-                href="#"
-                className="w-10 h-10 bg-sky-500 hover:bg-sky-600 rounded-full flex items-center justify-center transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="h-5 w-5" />
-              </Link>
-              <Link
-                href="#"
-                className="w-10 h-10 bg-pink-600 hover:bg-pink-700 rounded-full flex items-center justify-center transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram className="h-5 w-5" />
-              </Link>
-              <Link
-                href="#"
-                className="w-10 h-10 bg-red-600 hover:bg-red-700 rounded-full flex items-center justify-center transition-colors"
-                aria-label="YouTube"
-              >
-                <Youtube className="h-5 w-5" />
-              </Link>
+              {settings.facebook_url && (
+                <Link
+                  href={settings.facebook_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center transition-colors"
+                  aria-label="Facebook"
+                >
+                  <Facebook className="h-5 w-5" />
+                </Link>
+              )}
+              {settings.twitter_url && (
+                <Link
+                  href={settings.twitter_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-sky-500 hover:bg-sky-600 rounded-full flex items-center justify-center transition-colors"
+                  aria-label="Twitter"
+                >
+                  <Twitter className="h-5 w-5" />
+                </Link>
+              )}
+              {settings.instagram_url && (
+                <Link
+                  href={settings.instagram_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-pink-600 hover:bg-pink-700 rounded-full flex items-center justify-center transition-colors"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="h-5 w-5" />
+                </Link>
+              )}
+              {settings.linkedin_url && (
+                <Link
+                  href={settings.linkedin_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-blue-700 hover:bg-blue-800 rounded-full flex items-center justify-center transition-colors"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="h-5 w-5" />
+                </Link>
+              )}
+              {settings.youtube_url && (
+                <Link
+                  href={settings.youtube_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-red-600 hover:bg-red-700 rounded-full flex items-center justify-center transition-colors"
+                  aria-label="YouTube"
+                >
+                  <Youtube className="h-5 w-5" />
+                </Link>
+              )}
+              {settings.telegram_url && (
+                <Link
+                  href={settings.telegram_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-blue-500 hover:bg-blue-600 rounded-full flex items-center justify-center transition-colors"
+                  aria-label="Telegram"
+                >
+                  <Send className="h-5 w-5" />
+                </Link>
+              )}
             </div>
           </div>
 
@@ -162,29 +217,64 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-6 text-lg text-white">Contact Info</h4>
             <ul className="space-y-4">
-              <li className="flex items-start space-x-3">
-                <Mail className="h-5 w-5 text-orange-400 mt-0.5 flex-shrink-0" />
-                <div>
-                  <p className="text-gray-300 text-sm">Email</p>
-                  <a
-                    href="mailto:info@RozgarTap.com"
-                    className="text-white hover:text-orange-400 transition-colors"
-                  >
-                    info@RozgarTap.com
-                  </a>
-                </div>
-              </li>
+              {settings.contact_email && (
+                <li className="flex items-start space-x-3">
+                  <Mail className="h-5 w-5 text-orange-400 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="text-gray-300 text-sm">Email</p>
+                    <a
+                      href={`mailto:${settings.contact_email}`}
+                      className="text-white hover:text-orange-400 transition-colors"
+                    >
+                      {settings.contact_email}
+                    </a>
+                  </div>
+                </li>
+              )}
 
-              <li className="flex items-start space-x-3">
-                <MapPin className="h-5 w-5 text-orange-400 mt-0.5 flex-shrink-0" />
-                <div>
-                  <p className="text-gray-300 text-sm">Address</p>
-                  <p className="text-white">
-                    Bharatpur Rajasthan<br />
-                    India 321001
-                  </p>
-                </div>
-              </li>
+              {settings.contact_phone && (
+                <li className="flex items-start space-x-3">
+                  <Phone className="h-5 w-5 text-orange-400 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="text-gray-300 text-sm">Phone</p>
+                    <a
+                      href={`tel:${settings.contact_phone}`}
+                      className="text-white hover:text-orange-400 transition-colors"
+                    >
+                      {settings.contact_phone}
+                    </a>
+                  </div>
+                </li>
+              )}
+
+              {settings.contact_address && (
+                <li className="flex items-start space-x-3">
+                  <MapPin className="h-5 w-5 text-orange-400 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="text-gray-300 text-sm">Address</p>
+                    <p className="text-white whitespace-pre-line">
+                      {settings.contact_address}
+                    </p>
+                  </div>
+                </li>
+              )}
+
+              {settings.whatsapp_number && (
+                <li className="flex items-start space-x-3">
+                  <Phone className="h-5 w-5 text-orange-400 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="text-gray-300 text-sm">WhatsApp</p>
+                    <a
+                      href={`https://wa.me/${settings.whatsapp_number.replace(/[^0-9]/g, '')}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white hover:text-orange-400 transition-colors"
+                    >
+                      {settings.whatsapp_number}
+                    </a>
+                  </div>
+                </li>
+              )}
             </ul>
           </div>
         </div>
@@ -195,7 +285,7 @@ export default function Footer() {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
-              <p>&copy; 2025 Rozgartap. All rights reserved.</p>
+              <p>{settings.copyright_text}</p>
             </div>
             <div className="flex flex-wrap justify-center md:justify-end space-x-6 text-sm">
               <Link
@@ -234,7 +324,7 @@ export default function Footer() {
       </div>
 
       {/* Newsletter Section */}
-      <NewsletterSection />
+      {/* <NewsletterSection /> */}
     </footer>
   );
 }

@@ -92,7 +92,18 @@ export default function CategoriesPage() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ id: (editingCategory as any)._id?.toString?.() ?? (editingCategory as any).id, ...formData }),
         });
-        if (!res.ok) throw new Error('Failed');
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          if (res.status === 409) {
+            toast.error(`Duplicate Error: ${data.error}`);
+          } else {
+            toast.error(data.error || 'Failed to update category');
+          }
+          return;
+        }
+
         toast.success('Category updated successfully');
       } else {
         const res = await fetch('/api/admin/categories', {
@@ -100,12 +111,29 @@ export default function CategoriesPage() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(formData),
         });
-        if (!res.ok) throw new Error('Failed');
-        toast.success('Category created successfully');
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          if (res.status === 409) {
+            toast.error(`Duplicate Error: ${data.error}`);
+          } else {
+            toast.error(data.error || 'Failed to create category');
+          }
+          return;
+        }
+
+        // Update form with the actual slug that was created (in case it was auto-generated)
+        if (data.category && data.category.slug !== formData.slug) {
+          toast.success(`Category created successfully with slug: "${data.category.slug}"`);
+        } else {
+          toast.success('Category created successfully');
+        }
       }
       fetchCategories();
       resetForm();
-    } catch {
+    } catch (error) {
+      console.error('Category save error:', error);
       toast.error('Failed to save category');
     }
   }
@@ -118,8 +146,9 @@ export default function CategoriesPage() {
     try {
       const formData = new FormData();
       formData.append('file', file);
+      formData.append('type', 'category'); // Specify this is a category upload
 
-      const res = await fetch('/api/admin/upload', {
+      const res = await fetch('/api/admin/upload-banner', {
         method: 'POST',
         body: formData,
       });
@@ -128,9 +157,9 @@ export default function CategoriesPage() {
       const data = await res.json();
 
       setFormData((prev) => ({ ...prev, image_url: data.url }));
-      toast.success('Image uploaded successfully');
+      toast.success('Image uploaded successfully to Cloudinary');
     } catch {
-      toast.error('Failed to upload image');
+      toast.error('Failed to upload image to Cloudinary');
     } finally {
       setUploading(false);
     }
@@ -232,15 +261,18 @@ export default function CategoriesPage() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="slug">Slug *</Label>
+                  <Label htmlFor="slug">Slug (optional)</Label>
                   <Input
                     id="slug"
                     value={formData.slug}
                     onChange={(e) =>
                       setFormData({ ...formData, slug: e.target.value })
                     }
-                    required
+                    placeholder="Auto-generated from name"
                   />
+                  <p className="text-xs text-muted-foreground">
+                    Leave empty to auto-generate from name. System will ensure uniqueness.
+                  </p>
                 </div>
               </div>
 
@@ -395,13 +427,14 @@ export default function CategoriesPage() {
             {categories.map((category: any) => (
               <TableRow key={(category as any)._id ?? category.id}>
                 <TableCell>
-                  <div className="w-16 h-16 relative border rounded-lg overflow-hidden bg-slate-50">
+                  <div className="w-16 h-16 relative border rounded-lg overflow-hidden bg-white">
                     {category.image_url ? (
                       <Image
                         src={category.image_url}
                         alt={category.name}
                         fill
-                        className="object-contain p-1"
+                        className="object-contain p-2"
+                        sizes="64px"
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center text-slate-400 text-xs">

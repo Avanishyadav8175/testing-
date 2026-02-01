@@ -151,15 +151,15 @@ export default function ServiceCards({ categories = [] }: { categories?: any[] }
               href={href}
               className="group block"
             >
-              <div className="bg-white rounded-2xl p-4 md:p-6 shadow-md hover:shadow-lg transition-all duration-300 text-center hover:-translate-y-1">
+              <div className="bg-white rounded-2xl p-2 md:p-6 shadow-md hover:shadow-lg transition-all duration-300 text-center hover:-translate-y-1">
                 {category.image_url ? (
-                  <div className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-3 rounded-2xl overflow-hidden">
+                  <div className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-3 rounded-2xl overflow-hidden bg-white border border-gray-100">
                     <Image
                       src={category.image_url}
                       alt={category.name || category.title}
                       width={64}
                       height={64}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain p-1"
                     />
                   </div>
                 ) : (

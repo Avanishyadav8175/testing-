@@ -18,10 +18,34 @@ export async function POST(req: NextRequest) {
     const col = await getCollection<Category>('categories');
     const now = new Date();
 
+    // Validate required fields
+    if (!body.name) {
+      return NextResponse.json(
+        { error: 'Name is required' },
+        { status: 400 }
+      );
+    }
+
+    // Generate unique slug if not provided or if provided slug already exists
+    let slug = body.slug;
+    if (!slug) {
+      // Generate slug from name if not provided
+      slug = body.name
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-z0-9\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^-|-$/g, '');
+    }
+
+    // Ensure slug is unique
+    const uniqueSlug = await generateUniqueSlug(slug, 'categories');
+
     // Prepare category data with all fields
     const categoryData = {
       name: body.name,
-      slug: body.slug,
+      slug: uniqueSlug,
       description: body.description || '',
       icon: body.icon || 'briefcase',
       image_url: body.image_url || '',
@@ -33,10 +57,28 @@ export async function POST(req: NextRequest) {
     };
 
     await col.insertOne(categoryData as any);
-    return NextResponse.json({ ok: true });
+    return NextResponse.json({
+      ok: true,
+      message: 'Category created successfully',
+      category: categoryData
+    });
   } catch (err: any) {
     console.error('Category creation error:', err);
-    return NextResponse.json({ error: err.message || 'Failed to create category' }, { status: 500 });
+
+    // Handle MongoDB duplicate key error specifically
+    if (err.code === 11000) {
+      const duplicateField = Object.keys(err.keyValue || {})[0];
+      const duplicateValue = err.keyValue?.[duplicateField];
+      return NextResponse.json(
+        { error: `Category with ${duplicateField} "${duplicateValue}" already exists. Please use a different ${duplicateField}.` },
+        { status: 409 }
+      );
+    }
+
+    return NextResponse.json(
+      { error: err.message || 'Failed to create category' },
+      { status: 500 }
+    );
   }
 }
 
@@ -48,10 +90,33 @@ export async function PUT(req: NextRequest) {
 
     const col = await getCollection<Category>('categories');
 
+    // Validate required fields
+    if (!rest.name) {
+      return NextResponse.json(
+        { error: 'Name is required' },
+        { status: 400 }
+      );
+    }
+
+    // Generate unique slug if not provided
+    let slug = rest.slug;
+    if (!slug) {
+      slug = rest.name
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-z0-9\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^-|-$/g, '');
+    }
+
+    // Ensure slug is unique (excluding current category)
+    const uniqueSlug = await generateUniqueSlug(slug, 'categories', id);
+
     // Prepare update data
     const updateData = {
       name: rest.name,
-      slug: rest.slug,
+      slug: uniqueSlug,
       description: rest.description || '',
       icon: rest.icon || 'briefcase',
       image_url: rest.image_url || '',
@@ -61,11 +126,33 @@ export async function PUT(req: NextRequest) {
       updated_at: new Date(),
     };
 
-    await col.updateOne({ _id: new ObjectId(id) }, { $set: updateData });
-    return NextResponse.json({ ok: true });
+    const result = await col.updateOne({ _id: new ObjectId(id) }, { $set: updateData });
+
+    if (result.matchedCount === 0) {
+      return NextResponse.json({ error: 'Category not found' }, { status: 404 });
+    }
+
+    return NextResponse.json({
+      ok: true,
+      message: 'Category updated successfully'
+    });
   } catch (err: any) {
     console.error('Category update error:', err);
-    return NextResponse.json({ error: err.message || 'Failed to update category' }, { status: 500 });
+
+    // Handle MongoDB duplicate key error specifically
+    if (err.code === 11000) {
+      const duplicateField = Object.keys(err.keyValue || {})[0];
+      const duplicateValue = err.keyValue?.[duplicateField];
+      return NextResponse.json(
+        { error: `Category with ${duplicateField} "${duplicateValue}" already exists. Please use a different ${duplicateField}.` },
+        { status: 409 }
+      );
+    }
+
+    return NextResponse.json(
+      { error: err.message || 'Failed to update category' },
+      { status: 500 }
+    );
   }
 }
 

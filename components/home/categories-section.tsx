@@ -31,16 +31,17 @@ export default function CategoriesSection({
               className="group"
             >
               <div className="flex flex-col items-center">
-                <div className="relative w-full aspect-square rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 mb-2">
+                <div className="relative w-full aspect-square rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 mb-2 bg-white">
                   {category.image_url ? (
                     <Image
                       src={category.image_url}
                       alt={category.name}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="object-contain p-2 group-hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 33vw, (max-width: 1024px) 25vw, 16vw"
                     />
                   ) : (
-                    <div className="w-full  h-full flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200 group-hover:from-slate-200 group-hover:to-slate-300 transition-colors">
+                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200 group-hover:from-slate-200 group-hover:to-slate-300 transition-colors">
                       <Icon className="h-1/2 w-1/2 text-slate-600" />
                     </div>
                   )}

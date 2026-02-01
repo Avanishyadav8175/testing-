@@ -1,6 +1,7 @@
 import ConditionalLayout from '@/components/layout/conditional-layout';
 import AuthProvider from '@/components/providers/auth-provider';
 import { Toaster } from '@/components/ui/sonner';
+import { SettingsProvider } from '@/lib/settings-context';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
@@ -88,8 +89,10 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <AuthProvider>
-          <ConditionalLayout>{children}</ConditionalLayout>
-          <Toaster position="top-right" />
+          <SettingsProvider>
+            <ConditionalLayout>{children}</ConditionalLayout>
+            <Toaster position="top-right" />
+          </SettingsProvider>
           {process.env.NEXT_PUBLIC_GA_ID && (
             <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
           )}

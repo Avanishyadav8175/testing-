@@ -6,17 +6,18 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 interface PageProps {
-  params: {
+  params: Promise<{
     contentType: string;
     slug: string;
-  };
+  }>;
 }
 
 // Generate metadata for SEO
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   try {
+    const { slug } = await params;
     const contentCol = await getCollection('content');
-    const content = await contentCol.findOne({ slug: params.slug });
+    const content = await contentCol.findOne({ slug });
 
     if (!content) {
       return {
@@ -43,11 +44,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ContentPage({ params }: PageProps) {
   try {
+    const { contentType, slug } = await params;
     const contentCol = await getCollection('content');
 
     // Find content by slug
     const contentRaw = await contentCol.findOne({
-      slug: params.slug,
+      slug,
       active: true
     });
 
@@ -70,7 +72,7 @@ export default async function ContentPage({ params }: PageProps) {
     );
 
     // Get content type info
-    const contentType = CONTENT_TYPES.find(ct => ct.id === content.content_type);
+    const contentTypeInfo = CONTENT_TYPES.find(ct => ct.id === content.content_type);
 
     // Get category info for breadcrumb
     const categoriesCol = await getCollection('categories');
@@ -91,8 +93,8 @@ export default async function ContentPage({ params }: PageProps) {
                   {category.name}
                 </Link>
               ) : (
-                <Link href={`/${params.contentType}`} className="hover:text-blue-600 capitalize">
-                  {contentType?.name || params.contentType}
+                <Link href={`/${contentType}`} className="hover:text-blue-600 capitalize">
+                  {contentTypeInfo?.name || contentType}
                 </Link>
               )}
               <span>/</span>
@@ -102,11 +104,11 @@ export default async function ContentPage({ params }: PageProps) {
             {/* Header Card - Same as Blog Design */}
             <div className="bg-white rounded-xl shadow-md p-8 mb-8">
               <div className="flex items-center gap-3 mb-4">
-                {contentType && (
-                  <span className="text-3xl">{contentType.icon}</span>
+                {contentTypeInfo && (
+                  <span className="text-3xl">{contentTypeInfo.icon}</span>
                 )}
                 <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold">
-                  {contentType?.name || content.content_type}
+                  {contentTypeInfo?.name || content.content_type}
                 </span>
                 {content.featured && (
                   <span className="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm font-semibold">
@@ -431,10 +433,10 @@ export default async function ContentPage({ params }: PageProps) {
             {/* Back to Category */}
             <div className="mt-8 text-center">
               <Link
-                href={category ? `/category/${category.slug}` : `/${params.contentType}`}
+                href={category ? `/category/${category.slug}` : `/${contentType}`}
                 className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
               >
-                ← Back to {category?.name || contentType?.name || params.contentType}
+                ← Back to {category?.name || contentTypeInfo?.name || contentType}
               </Link>
             </div>
           </div>

@@ -16,9 +16,14 @@ const options = {
   maxPoolSize: 10,
   minPoolSize: 2,
   maxIdleTimeMS: 30000,
-  serverSelectionTimeoutMS: 10000,
+  serverSelectionTimeoutMS: 15000,
   socketTimeoutMS: 45000,
-  connectTimeoutMS: 10000,
+  connectTimeoutMS: 15000,
+  // SSL/TLS options to handle connection issues
+  ssl: true,
+  tls: true,
+  tlsAllowInvalidCertificates: true,
+  tlsAllowInvalidHostnames: true,
 };
 
 let client: MongoClient;
