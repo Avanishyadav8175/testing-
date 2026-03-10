@@ -138,8 +138,8 @@ export default function ServiceCards({ categories = [] }: { categories?: any[] }
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3 md:gap-4 lg:gap-6">
+    <div className="main-container py-4">
+      <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-5 gap-4 md:gap-6">
         {displayCategories.map((category) => {
           const Icon = getServiceIcon(category);
           const href = category.href || `/category/${category.slug}`;
@@ -151,25 +151,27 @@ export default function ServiceCards({ categories = [] }: { categories?: any[] }
               href={href}
               className="group block"
             >
-              <div className="bg-white rounded-2xl p-2 md:p-6 shadow-md hover:shadow-lg transition-all duration-300 text-center hover:-translate-y-1">
-                {category.image_url ? (
-                  <div className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-3 rounded-2xl overflow-hidden bg-white border border-gray-100">
-                    <Image
-                      src={category.image_url}
-                      alt={category.name || category.title}
-                      width={64}
-                      height={64}
-                      className="w-full h-full object-contain p-1"
-                    />
-                  </div>
-                ) : (
-                  <div className={`w-12 h-12 md:w-16 md:h-16 ${color} rounded-2xl flex items-center justify-center mx-auto mb-3`}>
-                    <Icon className="h-6 w-6 md:h-8 md:w-8 text-white" />
-                  </div>
-                )}
-                <h3 className="font-semibold text-gray-800 text-xs md:text-sm line-clamp-2 min-h-[2.5em] flex items-center justify-center">
+              <div className="flex flex-col h-full">
+                <div className="relative aspect-square rounded-[24px] bg-white border border-slate-100 shadow-sm group-hover:shadow-lg group-hover:-translate-y-1 transition-all duration-300 overflow-hidden flex items-center justify-center p-3 mb-2">
+                  {category.image_url ? (
+                    <div className="relative w-full h-full">
+                      <Image
+                        src={category.image_url}
+                        alt={category.name || category.title}
+                        fill
+                        className="object-contain group-hover:scale-110 transition-transform duration-500"
+                        sizes="(max-width: 768px) 30vw, (max-width: 1024px) 20vw, 15vw"
+                      />
+                    </div>
+                  ) : (
+                    <div className={`w-full h-full rounded-xl ${color} flex items-center justify-center opacity-90 group-hover:opacity-100 transition-opacity`}>
+                      <Icon className="h-1/2 w-1/2 text-white" />
+                    </div>
+                  )}
+                </div>
+                <span className="text-[14px] md:text-xl font-semibold  text-slate-900 text-center line-clamp-2 leading-tight px-1">
                   {category.name || category.title}
-                </h3>
+                </span>
               </div>
             </Link>
           );

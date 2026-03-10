@@ -257,7 +257,7 @@ export default function CategoriesPage() {
                     id="name"
                     value={formData.name}
                     onChange={(e) => handleNameChange(e.target.value)}
-                    required
+                   
                   />
                 </div>
                 <div className="space-y-2">

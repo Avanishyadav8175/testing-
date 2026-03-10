@@ -78,8 +78,8 @@ export default function TermsPage() {
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">Contact Information</h2>
             <p className="text-gray-600">
               If you have any questions about these Terms & Conditions, please contact us at{' '}
-              <a href="mailto:legal@Rozgartap.com" className="text-blue-600 hover:underline">
-                legal@Rozgartap.com
+              <a href="mailto:rozgartap@gmail.com" className="text-blue-600 hover:underline">
+                rozgartap@gmail.com 
               </a>
             </p>
           </section>

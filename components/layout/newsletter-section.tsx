@@ -46,7 +46,7 @@ export default function NewsletterSection() {
 
   return (
     <div className="bg-gradient-to-r from-blue-600 to-orange-500">
-      <div className="container mx-auto px-4 py-8">
+      <div className="main-container py-8">
         <div className="text-center">
           <div className="flex items-center justify-center mb-4">
             <Mail className="h-8 w-8 text-white mr-3" />

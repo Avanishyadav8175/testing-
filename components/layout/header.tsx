@@ -12,8 +12,8 @@ export default function Header() {
   const { settings } = useSettings();
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white shadow-sm">
-      <div className="container mx-auto px-4">
+    <header className=" sticky top-0 z-50 w-full bg-white">
+      <div className="main-container">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
             <div className="flex items-center">
@@ -28,10 +28,10 @@ export default function Header() {
               ) : (
                 <>
                   <span className="text-2xl font-bold text-blue-600">
-                    Rozg
+                    Rozgar
                   </span>
                   <span className="text-2xl font-bold text-orange-500">
-                    artap
+                    tap
                   </span>
                 </>
               )}
@@ -89,7 +89,7 @@ export default function Header() {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="md:hidden border-t border-gray-100 bg-white">
-          <div className="container mx-auto px-4 py-4 space-y-4">
+          <div className="main-container py-4 space-y-4">
             <Link
               href="/"
               className="block text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 px-4 py-2 rounded-lg"

@@ -23,14 +23,14 @@ export default function GovernmentJobsSection({ jobs }: { jobs: Job[] }) {
 
   return (
     <section className="py-12 bg-white">
-      <div className="container mx-auto px-4">
+      <div className="main-container">
         {/* Section Header */}
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center">
               <Building2 className="h-6 w-6 text-indigo-600" />
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
+            <h2 className="text-xl md:text-xl font-bold text-gray-800">
               Government Jobs
             </h2>
           </div>

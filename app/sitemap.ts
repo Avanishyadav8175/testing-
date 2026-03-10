@@ -2,7 +2,7 @@ import { getCollection } from '@/lib/db';
 import { MetadataRoute } from 'next';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://Rozgar Tap.com';
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://rozgartap.com';
 
   try {
     const contentCol = await getCollection('content');

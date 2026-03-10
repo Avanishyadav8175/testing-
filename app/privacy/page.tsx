@@ -65,7 +65,7 @@ export default function PrivacyPage() {
             <p className="text-gray-600">
               If you have any questions about this Privacy Policy, please contact us at{' '}
               <a href="mailto:privacy@Rozgar Tap.com" className="text-blue-600 hover:underline">
-                privacy@Rozgar Tap.com
+                rozgartap@gmail.com
               </a>
             </p>
           </section>

@@ -288,53 +288,89 @@ export default async function ContentPage({ params }: PageProps) {
                   </div>
                 </div>
 
-                {/* Main Description */}
+                {/* Full Description */}
                 {content.data?.description && (
                   <div className="bg-white rounded-xl shadow-md p-8 mb-8">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-4">Description</h2>
+                    <h2 className="text-2xl font-bold text-gray-800 mb-4 pb-2 border-b">Full Description</h2>
                     <div
-                      className="prose prose-lg max-w-none"
+                      className="prose prose-lg max-w-none prose-blue"
                       dangerouslySetInnerHTML={{ __html: content.data.description }}
                     />
                   </div>
                 )}
 
-                {/* Additional Sections */}
+                {/* Important Dates */}
                 {content.data?.important_dates && (
                   <div className="bg-white rounded-xl shadow-md p-8 mb-8">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-4">Important Dates</h2>
+                    <h2 className="text-2xl font-bold text-gray-800 mb-4 pb-2 border-b">Important Dates</h2>
                     <div
-                      className="prose prose-lg max-w-none"
+                      className="prose prose-lg max-w-none prose-blue"
                       dangerouslySetInnerHTML={{ __html: content.data.important_dates }}
                     />
                   </div>
                 )}
 
-                {content.data?.how_to_apply && (
+                {/* Vacancy Details */}
+                {content.data?.vacancy_details && (
                   <div className="bg-white rounded-xl shadow-md p-8 mb-8">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-4">How to Apply</h2>
+                    <h2 className="text-2xl font-bold text-gray-800 mb-4 pb-2 border-b">Vacancy Details</h2>
                     <div
-                      className="prose prose-lg max-w-none"
-                      dangerouslySetInnerHTML={{ __html: content.data.how_to_apply }}
+                      className="prose prose-lg max-w-none prose-blue"
+                      dangerouslySetInnerHTML={{ __html: content.data.vacancy_details }}
                     />
                   </div>
                 )}
 
+                {/* Eligibility Criteria */}
                 {content.data?.eligibility && (
                   <div className="bg-white rounded-xl shadow-md p-8 mb-8">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-4">Eligibility</h2>
+                    <h2 className="text-2xl font-bold text-gray-800 mb-4 pb-2 border-b">Eligibility Criteria</h2>
                     <div
-                      className="prose prose-lg max-w-none"
+                      className="prose prose-lg max-w-none prose-blue"
                       dangerouslySetInnerHTML={{ __html: content.data.eligibility }}
                     />
                   </div>
                 )}
 
-                {content.data?.skills_required && (
+                {/* How to Apply */}
+                {content.data?.how_to_apply && (
                   <div className="bg-white rounded-xl shadow-md p-8 mb-8">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-4">Skills Required</h2>
+                    <h2 className="text-2xl font-bold text-gray-800 mb-4 pb-2 border-b">How to Apply</h2>
                     <div
-                      className="prose prose-lg max-w-none"
+                      className="prose prose-lg max-w-none prose-blue"
+                      dangerouslySetInnerHTML={{ __html: content.data.how_to_apply }}
+                    />
+                  </div>
+                )}
+
+                {/* Selection Process */}
+                {content.data?.selection_process && (
+                  <div className="bg-white rounded-xl shadow-md p-8 mb-8">
+                    <h2 className="text-2xl font-bold text-gray-800 mb-4 pb-2 border-b">Selection Process</h2>
+                    <div
+                      className="prose prose-lg max-w-none prose-blue"
+                      dangerouslySetInnerHTML={{ __html: content.data.selection_process }}
+                    />
+                  </div>
+                )}
+
+                {/* Advance Information */}
+                {content.data?.advance_info && (
+                  <div className="bg-white rounded-xl shadow-md p-8 mb-8">
+                    <h2 className="text-2xl font-bold text-gray-800 mb-4 pb-2 border-b">Advance Information</h2>
+                    <div
+                      className="prose prose-lg max-w-none prose-blue"
+                      dangerouslySetInnerHTML={{ __html: content.data.advance_info }}
+                    />
+                  </div>
+                )}
+
+                {/* Skills Required (legacy support) */}
+                {content.data?.skills_required && !content.data?.eligibility && (
+                  <div className="bg-white rounded-xl shadow-md p-8 mb-8">
+                    <h2 className="text-2xl font-bold text-gray-800 mb-4 pb-2 border-b">Skills Required</h2>
+                    <div
+                      className="prose prose-lg max-w-none prose-blue"
                       dangerouslySetInnerHTML={{ __html: content.data.skills_required }}
                     />
                   </div>

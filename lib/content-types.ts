@@ -46,7 +46,11 @@ export const CONTENT_TYPES: ContentType[] = [
       { id: 'featured_image', name: 'featured_image', type: 'image', label: 'Featured Image' },
       { id: 'description', name: 'description', type: 'richtext', label: 'Full Description', required: true },
       { id: 'important_dates', name: 'important_dates', type: 'richtext', label: 'Important Dates' },
+      { id: 'vacancy_details', name: 'vacancy_details', type: 'richtext', label: 'Vacancy Details' },
+      { id: 'eligibility', name: 'eligibility', type: 'richtext', label: 'Eligibility Criteria' },
       { id: 'how_to_apply', name: 'how_to_apply', type: 'richtext', label: 'How to Apply' },
+      { id: 'selection_process', name: 'selection_process', type: 'richtext', label: 'Selection Process' },
+      { id: 'advance_info', name: 'advance_info', type: 'richtext', label: 'Advance Information' },
       { id: 'tags', name: 'tags', type: 'multiselect', label: 'Tags', options: ['Graduate', 'Post Graduate', 'All India', 'State Level', 'Permanent', 'Temporary', 'Contract'] },
     ]
   },

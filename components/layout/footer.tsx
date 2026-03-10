@@ -12,7 +12,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
       {/* Main Footer Content */}
-      <div className="container mx-auto px-4 py-12">
+      <div className="main-container py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="space-y-4">
@@ -28,10 +28,10 @@ export default function Footer() {
               ) : (
                 <p>
                   <span className="text-2xl font-bold text-blue-400">
-                      Rozg
+                      Rozgar
                   </span>
                   <span className="text-2xl font-bold text-orange-400">
-                  artap
+                  tap
                   </span>
                 </p>
               )}
@@ -282,7 +282,7 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-gray-800">
-        <div className="container mx-auto px-4 py-6">
+        <div className="main-container py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
               <p>{settings.copyright_text}</p>

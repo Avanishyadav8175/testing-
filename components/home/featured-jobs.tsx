@@ -23,7 +23,7 @@ export default function FeaturedJobs({ jobs }: { jobs: Job[] }) {
 
   return (
     <section className="py-12 bg-gradient-to-br from-yellow-50 to-orange-50">
-      <div className="container mx-auto px-4">
+      <div className="main-container">
         {/* Section Header */}
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-3">

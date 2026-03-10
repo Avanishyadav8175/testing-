@@ -37,25 +37,24 @@ export default function LatestJobs({
   posts?: Post[]
 }) {
   return (
-    <section className="py-12 bg-white">
-      <div className="container mx-auto px-4">
+    <section className="py-12 bg-white ">
+      <div className="main-container">
         {/* Section Header */}
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
               <Clock className="h-6 w-6 text-green-600" />
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
+            <h2 className="text-xl md:text-xl font-bold text-gray-800">
               Latest Updates
             </h2>
           </div>
 
-          <Link
-            href="/jobs"
-            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors group"
+           <Link
+            href="/search?q="
+            className="flex items-center gap-2 text-indigo-600 hover:text-indigo-700 font-medium transition-colors group"
           >
-            <Briefcase className="h-5 w-5" />
-            <span>View All Jobs</span>
+            <span>View All</span>
             <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
